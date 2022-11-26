@@ -14,6 +14,7 @@
       - wget
     state: present
   # brew don't work from root user on macOS
+  become: yes
   when: not (zsh_user == 'root' and ansible_os_family == 'Darwin')
 
 - name: Clone antigen {{ zsh_antigen_version }}
